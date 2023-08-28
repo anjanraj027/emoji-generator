@@ -12,10 +12,9 @@ let display = document.querySelector("#image");
 // let para = document.querySelector("p");
 
 //adding eventlistener for generate button
-btn1.addEventListener("click", async () => {
+btn1.addEventListener("click", () => {
   console.log("Generate button clicked");
-  await getEmoji();
-
+  getEmoji();
   //   console.log(result)
 });
 
@@ -25,7 +24,7 @@ btn1.addEventListener("click", async () => {
 // });
 
 // async function to generate random number to display image
-async function getEmoji() {
+function getEmoji() {
   //   let link = await fetch(url);
   //   let result = await link.json();
 
