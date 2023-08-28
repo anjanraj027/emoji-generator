@@ -5,25 +5,35 @@ let url = "https://emojihub.yurace.pro/api/random";
 let btn1 = document.querySelector("#gen");
 let btn2 = document.querySelector("#down");
 
+let foot = document.querySelector("footer");
+
 //selecting image displayer in html
 let display = document.querySelector("#image");
 
-//just to check if the addevent was working or not
-// let para = document.querySelector("p");
-
-//adding eventlistener for generate button
+//adding eventlistener for generate button for pc
 btn1.addEventListener("click", () => {
-  console.log("Generate button clicked");
+  //   console.log("Generate button clicked");
   getEmoji();
-  //   console.log(result)
+  display.classList.add("slide-animation");
+
+  setTimeout(() => {
+    // console.log("removed");
+    display.classList.remove("slide-animation");
+  }, 500);
 });
 
-//i don't see if i need it at all
-// btn2.addEventListener("click", () => {
-//   console.log("Download button clicked");
-// });
+//event listener for android touch start
+btn1.addEventListener("touchstart", () => {
+  getEmoji();
+  display.classList.add("slide-animation");
 
-// async function to generate random number to display image
+  setTimeout(() => {
+    // console.log("removed");
+    display.classList.remove("slide-animation");
+  }, 500);
+});
+
+//function to generate random number to display image
 function getEmoji() {
   //   let link = await fetch(url);
   //   let result = await link.json();
@@ -34,7 +44,7 @@ function getEmoji() {
   //   para.innerHTML = result.htmlCode;
 
   let randNo = Math.floor(Math.random() * 127) + 1;
-  console.log(randNo);
+  //   console.log(randNo);
 
   //   let randEmoji = "./assets/emoji" + (randNo) + png;
   let randEmoji = "./assets/emoji " + "(" + randNo + ")" + ".png";
